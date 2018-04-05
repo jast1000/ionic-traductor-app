@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Traductor
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-textarea [(ngModel)]="modelTraductor.texto" placeholder="Texto a traducir"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>De:</ion-label>
+      <ion-select [(ngModel)]="modelTraductor.lenguajeDe">
+        <ion-option *ngFor="let lenguaje of lenguajes" [value]="lenguaje.id">{{lenguaje.texto}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>A:</ion-label>
+      <ion-select [(ngModel)]="modelTraductor.lenguajeA">
+        <ion-option *ngFor="let lenguaje of lenguajes" [value]="lenguaje.id">{{lenguaje.texto}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button (click)="traducir()">Traducir</button>
+    </ion-item>
+
+    <ion-item>
+      {{modelTraductor.traduccion}}
+    </ion-item>
+  </ion-list>
+</ion-content>
